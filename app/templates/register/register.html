@@ -1,10 +1,29 @@
-{%extends 'base.html'%}
+{%extends 'register/base.html'%}
 {% block title %}Create account{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
-<form action="" method="post" class="form-group">
-    {% csrf_token %}
-    {{form|crispy}}
-    <button type="submit" class="btn btn-success">Register</button>
-</form>
+
+
+<div class="card-group">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <hr>
+        <div class="text-center">
+            <img src="https://res.cloudinary.com/zilfa/image/upload/v1610004870/instaaaa_dqcxq7.png"
+                 alt="..." style="height: 80px;">
+        </div>
+        <div class="card-body">
+            <div class="card-text">
+                <form action="" method="post" class="form-group">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-outline-danger">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
 {% endblock %}
