@@ -8,11 +8,12 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import RedirectView
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy,reverse
 
 
 # Create your views here.
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def home(request):
     posts = Post.objects.all()
     users = User.objects.exclude(id=request.user.id)
@@ -40,7 +41,7 @@ def signup(request):
     return render(request, 'register/register.html', {'form': form})    
 
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def profile(request, username):
     images = request.user.profile.posts.all()
     if request.method == 'POST':
@@ -58,7 +59,7 @@ def profile(request, username):
     return render(request, 'profile.html', context)
 
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def user_profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:
@@ -177,3 +178,21 @@ def like(request):
     if request.is_ajax():
         html = render_to_string('like.html', context, request=request)
         return JsonResponse({'form': html})
+
+
+def search_image(request):
+    if 'searchimage' in request.GET and request.GET["searchimage"]:
+        username = request.GET.get("searchimage")
+        users = Profile.search_by_profile(username)
+        message = f"{username}"
+        context = {'users':users,'message': message}
+
+        return render(request, "search.html",context)
+    else:
+      message = "You haven't searched for any term"
+      return render(request, 'search.html',{"message":message})  
+
+def likeView(request,pk):
+     post = get_object_or_404(Post,id=request.POST.get('post_id'))
+     post.likes.add(request.user)
+     return HttpResponseRedirect('/')
