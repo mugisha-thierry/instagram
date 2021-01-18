@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-7">
+            {% for post in posts %}
+
+            <div class="card mb-5">
+                <div class="row p-2 card-title">
+                    <img src="{{post.user.profile.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
+                        alt="{{post.user.user.username}}" width="35" height="35">
+                    <p class="p-2">{{post.user.user.username}}</p>
+                </div>
+                <img class="card-img-top" src="{{post.image.url}}" alt="{{post.name}}">
+                <div class="iconic ml-2">>
+                </div>
+                <div class="container">
+                    <p>{{post.caption}}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        {% for user in users %}
+        <div class="row p-1" style="width: 18rem; border: 1px solid grey;">
+            <img class="rounded-circle" src="{{ user.profile.profile.url }}" width="45px" height="45px">
+            <p><span><a href="{% url 'user_profile' user.username  %}">{{user.username}}</a></span></p>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+</div>
+{% endblock %}

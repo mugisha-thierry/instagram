@@ -1,0 +1,70 @@
+{%extends "register/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<style>
+    .or {
+        width: 80%;
+        text-align: center;
+        border-bottom: 1px solid rgb(211, 206, 206);
+        line-height: 0.1em;
+        margin: 10px 40px 20px;
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: -0.2cm;
+    }
+
+    .or span {
+        background: #fff;
+        padding: 0 20px;
+        color: rgb(156, 154, 154);
+    }
+</style>
+<div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-7" style="margin-top: 3%">
+                <img src="https://assets.hardwarezone.com/img/2016/05/instagram_news.jpg"
+                    width="650" height="550" alt="" class="img-responsive" style="border-radius: 5px">
+
+            </div>
+
+            <div class="col-md-4" style="margin-top:3%;">
+                <div class="card ">
+                    <img src="https://res.cloudinary.com/zilfa/image/upload/v1610004870/instaaaa_dqcxq7.png" width="180px" height="60px" style="margin-top: 7%;margin-left: 70px;" alt="">
+
+                    <div class="card-body mb-3 mr-3 ml-3">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form%}
+                            <input type="submit" class="btn btn-primary btn-sm"
+                                style="width: 280px;height: 40px;border: none;font-weight: bold;background-image: linear-gradient(to right, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);"
+                                value="Log in">
+                            <input type="hidden" name="next" value="{{next}}">
+                        </form>
+                    </div>
+
+                    {% if form.errors %}
+                    <p style="text-align: center;"> <small>Password or Username is incorrect</small> </p>
+                    {% endif %}
+
+                    <p class="or"> <span>OR</span></p>
+                    <br>
+                    <span  style="text-align: center; color: #4267B2;font-weight: bold;"><i
+                            class="fab fa-facebook-square fa-lg" ></i> Log in with Facebook</span>
+                    <br>
+                    <a  class="D-block mx-auto mb-3" style="color: rgb(6, 6, 77);"> <small>Forgot password? </small></a>
+                    
+                </div>
+
+                <div class="card mt-1">
+                    <div class="card-body mt-0.5 mb-0.5 mr-2 ml-4">
+                        Don't have an account? <a href="/signup"> <span style="font-weight: bold;">Sign Up </span> </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

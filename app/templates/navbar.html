@@ -1,0 +1,115 @@
+<!-- <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-white static-top" style="background-color: black; margin-bottom: 8%">
+    <div class="container-fluid">
+
+        <div>
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/zilfa/image/upload/v1610034794/rithainsta_ae4joa.png" style="margin-top:-0.2cm" alt="">
+
+            </a>
+        </div>
+
+        <form action="#" class="search text-center" style="margin-top: 2%; margin-left:5%;">
+            <input type="text" class="input-sm form-control" name="username"
+            placeholder="Search" style="border-radius: 30px;margin-top:-0.5cm;height: 50px;font-family: 'Times New Roman', Times, serif;width: 300px;border:none;background-color: rgba(255, 255, 255, 0.11);">
+          </form>
+
+        <div class="account">
+
+            <ul class="nav justify-content-end">
+               
+                {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: rgb(138, 134, 134);font-family: 'Times New Roman', Times, serif;margin-right: -1cm;font-weight: bold;"><i class="fas fa-user"></i> {{user.username}}</a>
+                </li>
+
+                <ul class="dropdown">
+                    <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
+                        aria-expanded="false" style="color: rgb(138, 134, 134); font-family: 'Times New Roman', Times, serif;font-weight: bold;" >Account
+                    </a>
+                    <ul class="dropdown-menu" role="menu" style="font-family: 'Times New Roman', Times, serif;">
+                        <li>
+                            &nbsp;<a href="#" style="color: black;font-weight:bold" > Add profile</a>
+                        </li>
+                        
+                        <li>
+                            &nbsp; <a href="#" style="color: black;font-weight:bold"> Upload</a>
+                        </li>
+                        
+                        <li>
+                            &nbsp;<a href="#" style="color: black;font-weight:bold"> Change
+                                Password</a>
+                        </li>
+                        
+                        <li>
+                            &nbsp; <a href="/logout" style="color: black;font-weight:bold"> Logout</a>
+                        </li>
+                    </ul>
+
+                </ul>
+
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: black">Login</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+
+    </div>
+
+</nav> -->
+<style>
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a {
+        color: #262626;
+    }
+</style>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item active">
+                <a class="nav-link" style="font-family: 'Courgette', cursive; font-size: 30px; padding-top: 0px; padding-bottom: 0px;" href="/">instagram<span class="sr-only">(current)</span></a>
+            </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <form class="form-inline my-2 my-lg-0 text-center">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+            </form>
+        </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-home"></i></a></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/upload_image"><i class="fas fa-plus-square"></i></a>
+
+
+            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-heart"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><img src="https://avatars.io/instagram/fmondev" alt=""></a>
+        </li>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+</nav>
