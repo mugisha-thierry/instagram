@@ -14,9 +14,6 @@ urlpatterns=[
     path('post/<pk>', views.comment, name='comment'),
     path('search',views.search_image,name = 'search_image'),
     path('like/<int:pk>',views.likeView,name='like_post'),
-    # path('post/<id>/like', PostLikeToggle.as_view(), name='liked'),
-    # path('api/post/<id>/like', PostLikeAPIToggle.as_view(), name='liked-api'),
-    # path('like', like, name='like_post'),
 ]
 
 if settings.DEBUG:
