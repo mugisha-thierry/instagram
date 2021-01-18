@@ -7,7 +7,14 @@ from . import views
 urlpatterns=[
     path('',views.home,name = 'home'),
     path('signup/',views.signup , name='signup'),
-    path('upload_image/',views.upload_image , name='upload_image'),
+    path('profile/<username>/', views.profile, name='profile'),
+    path('user_profile/<username>/', views.user_profile, name='user_profile'),
+    path('follow/<pk>', views.follow, name='follow'),
+    path('unfollow/<pk>',views.unfollow, name='unfollow'),
+    path('post/<pk>', views.comment, name='comment'),
+    # path('post/<id>/like', PostLikeToggle.as_view(), name='liked'),
+    # path('api/post/<id>/like', PostLikeAPIToggle.as_view(), name='liked-api'),
+    # path('like', like, name='like_post'),
 ]
 
 if settings.DEBUG:
