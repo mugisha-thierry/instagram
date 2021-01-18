@@ -8,7 +8,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True, default='No bio')
-    profile = models.ImageField(upload_to='images/', default='a.jpg')
+    profile = models.ImageField(upload_to='images/', default='a.png')
 
     @classmethod
     def search_by_profile(cls, username):
@@ -71,3 +71,4 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ["-pk"]
+        
