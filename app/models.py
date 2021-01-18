@@ -10,6 +10,11 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True, default='No bio')
     profile = models.ImageField(upload_to='images/', default='a.jpg')
 
+    @classmethod
+    def search_by_profile(cls, username):
+        certain_user = cls.objects.filter(user__username__icontains = username)
+        return certain_user
+
     def __str__(self):
         return self.user.username
     
