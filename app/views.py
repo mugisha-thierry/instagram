@@ -133,34 +133,8 @@ class PostLikeToggle(RedirectView):
             obj.likes.add(user)
         return url_
 
-# class PostLikeAPIToggle(APIView):
-#     authentication_classes = [authentication.SessionAuthentication]
-#     permission_classes = [permissions.IsAuthenticated]
-
-    # def get(self, request, id=None, format=None):
-    #     # id = self.kwargs.get('id')
-    #     obj = get_object_or_404(Post, pk=id)
-    #     url_ = obj.get_absolute_url()
-    #     user = self.request.user
-    #     updated = False
-    #     liked = False
-    #     if user in obj.likes.all():
-    #         liked = False
-    #         obj.likes.remove(user)
-    #     else:
-    #         liked = True
-    #         obj.likes.add(user)
-    #     updated = True
-    #     data = {
-
-    #         'updated': updated,
-    #         'liked': liked,
-    #     }
-    #     return Response(data)
-
 
 def like(request):
-    # image = get_object_or_404(Post, id=request.POST.get('image_id'))
     image = get_object_or_404(Post, id=request.POST.get('id'))
     is_liked = False
     if image.likes.filter(id=request.user.id).exists():
