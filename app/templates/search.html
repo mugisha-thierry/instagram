@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{% block content %}
+<div class="p-3 mb-2 bg-light text-dark">
+{% if users%}
+{% for result in users%}
+<div >
+    <img src="{{result.profile.url}}" alt=""
+        class="rounded-circle ml-3 mt-2  mr-3" width="100" height="100">
+        <a href="{% url 'user_profile' user.username  %}">{{result.user}}</a>
+</div>
+<a href="/" class="btn btn-dark">backhome</a>
+{% endfor %}
+{% else %}
+<p>No user found for username {{message}}</p>
+<a href="/" class="btn btn-dark">backhome</a>
+{% endif %}
+</div>
+{% endblock %}
